@@ -1,0 +1,19 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api 'com.squareup:kotlinpoet:0.7.0'
+    implementation 'com.squareup:javapoet:1.7.0'
+    implementation 'com.google.auto.service:auto-service:1.0-rc2'
+
+    implementation project(':lib_annotation')
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
